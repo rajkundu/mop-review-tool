@@ -7,7 +7,7 @@ This tool hides/shows answers for easy self-retesting. To use it:
 3) Press the comma (",") key to *hide* answer-related information before continuing to the next page. (Tip: you can use the right arrow and/or return keys to move to the next page.)
 4) Repeat – press the comma (",") key to show the answer, then press the comma (",") key to hide the answer, then advance to the next page/question.
 
-**Please submit any feedback to raj@kundu.io!**
+**Please submit any comments, suggestions, or other feedback to [raj@kundu.io](mailto:raj@kundu.io?subject=MOP%20Review%20Tool)!**
 
 ### Screenshots
 
