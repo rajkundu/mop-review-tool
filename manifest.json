@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "MOP Review Tool",
+  "version": "0.1.0",
+  "description": "Hides answers on MOP for easy retesting",
+  "icons": {
+    "48": "icons/icon48.png",
+    "96": "icons/icon96.png",
+    "128": "icons/icon128.png",
+    "192": "icons/icon192.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.mcatofficialprep.org/app/*"],
+      "js": ["main.js"]
+    }
+  ],
+  "host_permissions": [
+    "*://*.mcatofficialprep.org/app/*"
+  ]
+}
