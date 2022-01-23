@@ -14,4 +14,8 @@ This tool hides/shows answers for easy self-retesting. To use it:
 ![Question with answer hidden](./screenshots/answerhidden.png)
 ![Question with answer shown](./screenshots/answershown.png)
 
-*Note: MCAT® is a registered trademark of the Association of American Medical Colleges (AAMC). This extension is NOT associated with either the MCAT® or the AAMC in any official capacity.
+#### Attributions
+The extension icons ([/icons](/icons)) are from [FontAwesome](https://fontawesome.com).
+
+#### Note*
+MCAT® is a registered trademark of the Association of American Medical Colleges (AAMC). This extension is NOT associated with either the MCAT® or the AAMC in any official capacity.
