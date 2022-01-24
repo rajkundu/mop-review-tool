@@ -9,6 +9,13 @@ This tool hides/shows answers for easy self-retesting. To use it:
 
 **Please submit any comments, suggestions, or other feedback to [raj@kundu.io](mailto:raj@kundu.io?subject=MOP%20Review%20Tool)!**
 
+### Installation
+This tool has been released on the following web stores for easy installation. Please click on the link for your browser below:
+- [Firefox](https://addons.mozilla.org/en-US/firefox/addon/mop-review-tool)
+- Chrome – coming soon!
+
+Alternatively, if your browser is not listed, you can clone this repository and install the extension manually. Also, please feel free to contact [raj@kundu.io](mailto:raj@kundu.io?subject=MOP%20Review%20Tool%20%2D%20Browser%20Support) or file an issue on GitHub!
+
 ### Screenshots
 
 ![Question with answer hidden](./screenshots/answerhidden.png)
