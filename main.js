@@ -1,4 +1,4 @@
-let css = `
+const HIDE_ANSWERS_CSS = `
 #review, #answer, i.icon-check, i.icon-remove, .result-wrapper {
   display: none !important;
 }
@@ -30,12 +30,12 @@ var quizMode = true;
 var answersHidden = true;
 let style = document.createElement('style');
 style.id = 'mop-review-tool__css';
-style.innerHTML = css;
+style.innerHTML = HIDE_ANSWERS_CSS;
 document.head.appendChild(style);
 
 function setHidden(newVal) {
 	answersHidden = newVal;
-	style.innerHTML = answersHidden ? css : '';
+	style.innerHTML = answersHidden ? HIDE_ANSWERS_CSS : '';
 }
 
 function setAnswerChoiceOnClick() {

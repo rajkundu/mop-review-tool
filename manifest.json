@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "MOP Review Tool",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Hides answers on MOP for easy retesting",
   "icons": {
     "16": "icons/icon16.png",
