@@ -22,7 +22,7 @@ This tool hides/shows answers for easy self-retesting. To use it:
 - Press `r` to enter review mode (shows answers for every question, like normal)
 - Press `h` to view the help screen, which lists these shortcuts
 
-By default, every time you enter a review session, quiz mode is enabled. To disable quiz mode, please see the keyboard shortcuts below.
+By default, every time you enter a question review session, quiz mode is enabled. To disable quiz mode (i.e., enter review mode), use the `r` keyboard shortcut as detailed above.
 
 ### Screenshots
 
