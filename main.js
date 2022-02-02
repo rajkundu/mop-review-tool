@@ -38,39 +38,79 @@ function setHidden(newVal) {
 	style.innerHTML = answersHidden ? HIDE_ANSWERS_CSS : '';
 }
 
-function setAnswerChoiceOnClick() {
+function quizModeSetup() {
+	quizMode = true;
+	setAnswerButtonsEnabled(quizMode);
+	setHidden(quizMode);
+}
+
+function reviewModeSetup() {
+	quizMode = false;
+	setAnswerButtonsEnabled(quizMode);
+	setHidden(quizMode);
+
+	// Reset answer button appearance
 	var answerButtons = document.getElementsByClassName('answer-choice-button');
 	for (let answerButton of answerButtons) {
-		answerButton.removeAttribute('disabled');
+		if (!(answerButton.classList.contains('correct') || answerButton.classList.contains('incorrect'))) {
+			answerButton.getElementsByTagName('i')[0].remove();
+			answerButton.classList.remove('is-selected');
+		}
+	}
+}
+
+function setAnswerButtonsEnabled(buttonsEnabled) {
+	var answerButtons = document.getElementsByClassName('answer-choice-button');
+	for (let answerButton of answerButtons) {
+		if (buttonsEnabled) {
+			answerButton.removeAttribute('disabled');
+		} else {
+			answerButton.setAttribute('disabled', true);
+		}
+	}
+}
+
+function setAnswerClickCallback() {
+	var answerButtons = document.getElementsByClassName('answer-choice-button');
+	for (let answerButton of answerButtons) {
+		setAnswerButtonsEnabled(quizMode);
 		answerButton.addEventListener('click', (event) => {
+			// Show all answers
 			setHidden(false);
+			// Disable clicking answer buttons
+			setAnswerButtonsEnabled(false);
 		});
 	}
 }
 
+// Primary observer that observes nearly the entire document body; starts secondary observer on review page load
 const loadingObserver = new MutationObserver((mutations) => {
 	mutations.forEach((mutation) => {
-		mutation.removedNodes.forEach(function(addedNode) {
-			if (addedNode.id === 'progress-modal') {
-				setAnswerChoiceOnClick();
-				questionChangeObserver.observe(document.querySelector('#answer'), { childList: true, subtree: false });
+		mutation.addedNodes.forEach((addedNode) => {
+			// There are some empty #question-app divs, so make sure this one actually has content
+			if (addedNode.id === 'question-app' && addedNode.innerText.trim().length > 0) {
+				setAnswerClickCallback();
+				questionChangeObserver.observe(document.getElementById('answer'), { childList: true, subtree: false });
 				loadingObserver.disconnect();
 			}
 		});
 	});
 });
 
+// Secondary, less taxing observer
 const questionChangeObserver = new MutationObserver((mutations) => {
-	mutations.forEach((mutation) => {
-		if (quizMode) {
-			setHidden(true);
-		}
-		setAnswerChoiceOnClick();
-	});
+	if (quizMode) {
+		setHidden(true);
+	}
+	setAnswerClickCallback();
 });
 
-loadingObserver.observe(document.querySelector('body'), { childList: true, subtree: false });
+// ========== Content script ========== //
 
+// Start primary observer
+loadingObserver.observe(document.getElementById('wrapper'), { childList: true, subtree: true });
+
+// Listen for keypresses
 document.addEventListener('keydown', (event) => {
 	if (event.key === '.') {
 		// If user pressed answer toggle key but was in review mode, they probably want to switch to quiz mode
@@ -78,12 +118,10 @@ document.addEventListener('keydown', (event) => {
 		setHidden(!answersHidden);
 	} else if  (event.key === 'q') {
 		// Quiz mode
-		quizMode = true;
-		setHidden(true);
+		quizModeSetup();
 	} else if (event.key === 'r') {
 		// Review mode
-		quizMode = false;
-		setHidden(false);
+		reviewModeSetup();
 	} else if (event.key === 'h') {
 		// Help screen
 		alert(HELP_ALERT_STR);
