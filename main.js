@@ -66,6 +66,7 @@ function setAnswerButtonsEnabled(buttonsEnabled) {
 			answerButton.removeAttribute('disabled');
 		} else {
 			answerButton.setAttribute('disabled', true);
+			answerButton.blur();
 		}
 	}
 }
