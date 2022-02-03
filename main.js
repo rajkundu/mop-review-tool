@@ -7,10 +7,10 @@ const HIDE_ANSWERS_CSS = `
   color: var(--black) !important;
 }
 .answer-choice-button.correct, .answer-choice-button.incorrect {
-	background-color: var(--pure-white) !important;
+  background-color: var(--pure-white) !important;
 }
 .answer-choice-value {
-	background-color: var(--background) !important;
+  background-color: var(--background) !important;
 }
 #answer {
   margin-top: 100%;
