@@ -4,7 +4,7 @@
 ### Installation
 This tool has been released on the following web stores for easy installation. Please click on the link for your browser below:
 - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/mop-review-tool)
-- Chrome – coming soon!
+- [Chrome](https://chrome.google.com/webstore/detail/mop-review-tool/gibehjdihcgpmholbfbmpidgefnfpkod)
 
 Alternatively, if your browser is not listed, you can clone this repository and install the extension manually. Also, please feel free to contact [raj@kundu.io](mailto:raj@kundu.io?subject=MOP%20Review%20Tool%20%2D%20Browser%20Support) or file an issue on GitHub!
 
